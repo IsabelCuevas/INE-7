@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include "menu.h"
+#include "Estado.h"
 
 int main(){;
+    Estado mexico[32];
     int opcion, interfaz;
   do{
      interfaz = crearMenu("\nElija la opcion que desee\n1)Votar\n2)Revisar estadisticas\n", 2);
