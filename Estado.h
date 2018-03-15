@@ -23,8 +23,13 @@ typedef struct{
 }Municipio;
 
 typedef struct{
-    char nombreEstado[N];
+    char nombreDistrito[N];
     Municipio municipios[10];
+}Distrito;
+
+typedef struct{
+    char nombreEstado[N];
+    Distrito distritos[300];
 }Estado;
 
 #endif // ESTADO_H_INCLUDED
