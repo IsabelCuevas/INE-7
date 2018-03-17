@@ -3,33 +3,33 @@
 #define N 20
 
 typedef struct{
-    char calle[N];
+    char *calle;
     int numero;
-    char colonia[N];
+    char *colonia;
 }Direccion;
 
 typedef struct{
-    char nombres[N];// Nombre y apellido no tienen longitud definida
-    char apellidos[N];
-    Direccion dir_persona;
+    char *nombres;// Nombre y apellido como apuntadores
+    char *apellidos;
+    Direccion *dir_persona; //La estructura Direccion dentro de ciudadano se creara de manera dinamica
     char CURP[18]; //El numero de cartacteres del curp y la clave de elector es igual siempre
     char clave_de_elector[18];
     int genero;
+    int voto;
 }Ciudadano;
 
 typedef struct{
-    char nombreMunicipio;
-    Ciudadano votantes[50]; //50 votantes por cada municipio
+    char nombreMunicipio[N];
+    Ciudadano *votantes; //El numero de votantes se creara de manera dinamica
 }Municipio;
 
 typedef struct{
-    char nombreDistrito[N];
-    Municipio municipios[10];
-}Distrito;
-
-typedef struct{
     char nombreEstado[N];
-    Distrito distritos[300];
+    Municipio municipios[10];
 }Estado;
+
+void inicializarSistema(Estado *mexico);
+Ciudadano *crearCiudadano(int numVotantes);
+void liberarMemoria(Estado *mexico);
 
 #endif // ESTADO_H_INCLUDED
